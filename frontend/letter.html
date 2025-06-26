@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Name Color Changer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 50px;
+      transition: background-color 0.5s ease;
+    }
+    input {
+      padding: 10px;
+      margin: 10px;
+      font-size: 18px;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+    #message {
+      margin-top: 30px;
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Name Color Changer</h1>
+
+  <input type="text" id="nameInput" placeholder="Enter your name">
+  <button onclick="changeColor()">Change Color</button>
+
+  <div id="message"></div>
+
+  <script>
+    function changeColor() {
+      const name = document.getElementById("nameInput").value.trim();
+      const messageDiv = document.getElementById("message");
+
+      if (!name) {
+        messageDiv.innerText = "Please enter a name.";
+        return;
+      }
+
+      // Choose color based on first letter (customize as needed)
+      const firstLetter = name[0].toLowerCase();
+      let color;
+      switch (firstLetter) {
+        case 'a': case 'b': case 'c':
+          color = "#e0f7e9"; // light green
+          break;
+        case 'd': case 'e': case 'f':
+          color = "#fff8dc"; // light yellow
+          break;
+        case 'g': case 'h': case 'i':
+          color = "#d6eaff"; // light blue
+          break;
+        case 'j': case 'k': case 'l':
+          color = "#ede7f6"; // light purple
+          break;
+        case 'm': case 'n': case 'o':
+          color = "#ffe0e0"; // light red
+          break;
+        case 'p': case 'q': case 'r':
+          color = "#f0e68c"; // khaki
+          break;
+        case 's': case 't': case 'u':
+          color = "#e0ffff"; // light cyan
+          break;
+        case 'v': case 'w': case 'x': case 'y': case 'z':
+          color = "#f5e6ff"; // light violet
+          break;
+        default:
+          color = "#ffffff"; // default white
+      }
+
+      document.body.style.backgroundColor = color;
+      messageDiv.innerText = `Hello, ${name}!`;
+    }
+  </script>
+
+</body>
+</html>
